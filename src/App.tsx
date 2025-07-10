@@ -16,6 +16,9 @@ import Button from "./components/Button";
 // import { ThemeContext } from "./contexts/themeContext";
 import Hoc from "./components/Hoc";
 import { ThemeContext, type ThemeType } from "./contexts/themeContext";
+import { Provider, useSelector } from "react-redux";
+import { decremented, incremented, store, type stateType } from "./redux/store";
+import ReduxComponent from "./components/ReduxComponent";
 
 enum countAction {
   INCREMENT = "increment",
@@ -74,53 +77,57 @@ function App() {
   };
 
   const themeContextValue = { theme, toggleTheme };
+
   //
 
   return (
     <>
-      <ThemeContext value={themeContextValue}>
-        <div>
-          <a href="https://vite.dev" target="_blank">
-            <img src={viteLogo} className="logo" alt="Vite logo" />
-          </a>
-          <a href="https://react.dev" target="_blank">
-            <img src={reactLogo} className="logo react" alt="React logo" />
-          </a>
-          <a href="https://www.typescriptlang.org" target="_blank">
-            <img src={TSLogo} className="logo TS" alt="TS logo" />
-          </a>
-        </div>
-        <h1 className="center_title">Vite + React + Typescript</h1>
-        <div className="card">
-          <input
-            type="text"
-            name=""
-            id=""
-            value={ref.current}
-            readOnly={true}
-          />
-          <Button type={"inc"} />
-          <Button type={"dec"} />
-          <h1>{"Memo value : " + num2}</h1>
-          <h1>{num}</h1>
-          <button onClick={num3}>Add 5</button>
-          <p style={{ margin: "1rem" }}></p>
-          <input type="text" value={state.counter} readOnly={true} />
-          <button
-            type="button"
-            onClick={() => {
-              dispatch({ type: countAction.INCREMENT });
-            }}
-          >
-            Increment
-          </button>
-          <p>{theme}</p>
-          <button type="button" onClick={toggleTheme}>
-            Change Theme from {theme}
-          </button>
-        </div>
-        <Hoc />
-      </ThemeContext>
+      <Provider store={store}>
+        <ThemeContext value={themeContextValue}>
+          <div>
+            <a href="https://vite.dev" target="_blank">
+              <img src={viteLogo} className="logo" alt="Vite logo" />
+            </a>
+            <a href="https://react.dev" target="_blank">
+              <img src={reactLogo} className="logo react" alt="React logo" />
+            </a>
+            <a href="https://www.typescriptlang.org" target="_blank">
+              <img src={TSLogo} className="logo TS" alt="TS logo" />
+            </a>
+          </div>
+          <h1 className="center_title">Vite + React + Typescript</h1>
+          <div className="card">
+            <input
+              type="text"
+              name=""
+              id=""
+              value={ref.current}
+              readOnly={true}
+            />
+            <Button type={"inc"} />
+            <Button type={"dec"} />
+            <h1>{"Memo value : " + num2}</h1>
+            <h1>{num}</h1>
+            <button onClick={num3}>Add 5</button>
+            <p style={{ margin: "1rem" }}></p>
+            <input type="text" value={state.counter} readOnly={true} />
+            <button
+              type="button"
+              onClick={() => {
+                dispatch({ type: countAction.INCREMENT });
+              }}
+            >
+              Increment
+            </button>
+            <p>{theme}</p>
+            <button type="button" onClick={toggleTheme}>
+              Change Theme from {theme}
+            </button>
+          </div>
+          <Hoc />
+          <ReduxComponent />
+        </ThemeContext>
+      </Provider>
     </>
   );
 }
