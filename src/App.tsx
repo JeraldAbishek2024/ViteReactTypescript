@@ -13,6 +13,7 @@ import TSLogo from "./assets/typescript.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Button from "./components/Button";
+import Header from "./components/Header";
 // import { ThemeContext } from "./contexts/themeContext";
 import Hoc from "./components/Hoc";
 import { ThemeContext, type ThemeType } from "./contexts/themeContext";
@@ -20,6 +21,7 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import ReduxComponent from "./components/ReduxComponent";
 import PlayerButton from "./components/PlayerButton";
+import CD from "./components/CD";
 
 enum countAction {
   INCREMENT = "increment",
@@ -83,6 +85,7 @@ function App() {
     <>
       <Provider store={store}>
         <ThemeContext value={themeContextValue}>
+          <Header />
           <div>
             <a href="https://vite.dev" target="_blank">
               <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -94,6 +97,7 @@ function App() {
               <img src={TSLogo} className="logo TS" alt="TS logo" />
             </a>
           </div>
+          <CD />
           <h1 className="center_title">Vite + React + Typescript</h1>
           <div className="card">
             <input
