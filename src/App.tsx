@@ -19,6 +19,7 @@ import { ThemeContext, type ThemeType } from "./contexts/themeContext";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import ReduxComponent from "./components/ReduxComponent";
+import PlayerButton from "./components/PlayerButton";
 
 enum countAction {
   INCREMENT = "increment",
@@ -78,8 +79,6 @@ function App() {
 
   const themeContextValue = { theme, toggleTheme };
 
-  //
-
   return (
     <>
       <Provider store={store}>
@@ -126,6 +125,7 @@ function App() {
           </div>
           <Hoc />
           <ReduxComponent />
+          <PlayerButton />
         </ThemeContext>
       </Provider>
     </>
