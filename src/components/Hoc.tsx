@@ -1,12 +1,15 @@
 import React, { useContext } from "react";
-// import { ThemeContext } from "../contexts/themeContext";
-// const theme = useContext(ThemeContext);
+import {
+  ThemeContext,
+  type ThemeContextType,
+  type ThemeType,
+} from "../contexts/themeContext";
 
 function Inner() {
   return <span>Inner Component</span>;
 }
 
-function HC(Inner: any) {
+function HC(Inner: React.FC) {
   function Wrapper() {
     return (
       <>
@@ -21,9 +24,13 @@ function HC(Inner: any) {
 const CO = HC(Inner);
 
 export default function Hoc() {
+  const { theme, toggleTheme } = useContext<ThemeContextType>(ThemeContext);
   return (
     <>
       <CO />
+      <button type="button" onClick={toggleTheme}>
+        Change Theme from {theme}
+      </button>
     </>
   );
 }
