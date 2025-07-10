@@ -11,11 +11,11 @@ export default function PlayerButton() {
 
   return (
     <div>
-      <h1>Player Stats:</h1>
+      <h1>Custom Hook:</h1>
       <h3>{playerControl.player}</h3>
       <h3>{playerControl.playerInc}</h3>
       <button type="button" onClick={handleClick}>
-        Player Increase
+        Multiply & Increase
       </button>
     </div>
   );
