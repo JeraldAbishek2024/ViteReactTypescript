@@ -2,8 +2,8 @@ import {
   useRef,
   useEffect,
   useReducer,
-  useContext,
-  createContext,
+  // useContext,
+  // createContext,
   useState,
   useMemo,
   useCallback,
@@ -16,8 +16,8 @@ import Button from "./components/Button";
 // import { ThemeContext } from "./contexts/themeContext";
 import Hoc from "./components/Hoc";
 import { ThemeContext, type ThemeType } from "./contexts/themeContext";
-import { Provider, useSelector } from "react-redux";
-import { decremented, incremented, store, type stateType } from "./redux/store";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 import ReduxComponent from "./components/ReduxComponent";
 
 enum countAction {

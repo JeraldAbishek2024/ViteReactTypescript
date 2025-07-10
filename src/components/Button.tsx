@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { ThemeContext } from "../contexts/themeContext";
 
 type typeProp = {
@@ -10,7 +10,7 @@ export default function Button({ type }: typeProp) {
   const theme = useContext(ThemeContext);
 
   let btnName: string;
-  let btnIcon: string;
+  //   let btnIcon: string;
   if (type == "inc") {
     btnName = "Like";
   } else {

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import {
   ThemeContext,
   type ThemeContextType,
-  type ThemeType,
+  // type ThemeType,
 } from "../contexts/themeContext";
 
 function Inner() {
