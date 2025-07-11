@@ -1,6 +1,6 @@
-import React from "react";
+// import React from "react";
 import styles from "../css/style.module.css";
-import viteLogo from "/vite.svg";
+// import viteLogo from "/vite.svg";
 
 export default function CD() {
   return (
